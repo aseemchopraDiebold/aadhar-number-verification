@@ -10,7 +10,6 @@ describe('workspace-project App', () => {
   });
 
   it('should display welcome message', () => {
-    
     expect(page.getParagraphText()).toEqual('app');
   });
 
@@ -29,12 +28,11 @@ describe('workspace-project App', () => {
 
   it('should validate the aadhar number', () => {
     page.getInputElement().sendKeys(9999999999);
-    page.getButtonElement().click()
-    browser.wait(()=>{
+    page.getButtonElement().click();
+    browser.wait(() => {
       return browser.isElementPresent(page.getSuccessMesageElement());
-    }).then(()=>{
+    }).then(() => {
       expect(page.getSuccessMesageElement()).toBeTruthy();
-    })
-    
+    });
   });
 });
