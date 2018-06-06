@@ -26,7 +26,7 @@ task angularAppBuildProd(type: Exec) {
     // }
 }
 task angularAppTest(type: Exec) {
-    commandLine "cmd", "/c", "npm run ng test --code-coverage --watch=false";
+    commandLine "cmd", "/c", "npm run test";
 }
 task angularAppLint(dependsOn:'angularAppLintReporter', type: Exec) {
     commandLine "cmd", "/c", "npm run ng lint";
