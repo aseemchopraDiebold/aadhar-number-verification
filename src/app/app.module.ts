@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { VerifyAadharNumberComponent } from './verify-aadhar-number/verify-aadhar-number.component';
 import { AadharNumberInfoFetchService } from './aadhar-number-info-fetch.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MyLibModule } from 'dist/my-lib';
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { MyLibModule } from 'dist/my-lib';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    MyLibModule
+    HttpClientModule
   ],
   providers: [AadharNumberInfoFetchService],
   bootstrap: [AppComponent]
