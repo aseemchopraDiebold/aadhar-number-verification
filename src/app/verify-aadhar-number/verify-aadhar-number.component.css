@@ -1,0 +1,15 @@
+.aadhar-card-input{
+    margin:2em;
+}
+.aadhar-number-match-success{
+    background-color: darkseagreen;
+    color: darkgreen;
+    padding: 1em;
+    border:1px solid darkgreen;
+}
+.aadhar-number-match-error{
+    background-color: rgb(188, 143, 143);
+    color: rgb(100, 0, 0);
+    padding: 1em;
+    border: 1px solid rgb(100, 0, 0);
+}

@@ -1,0 +1,12 @@
+<h1>Aadhar Card Number Validation</h1>
+<hr>
+<input type="text" class="aadhar-card-input" placeholder="Aadhar Number" #aadharNumber>
+<button (click)='validateAadharNumber(aadharNumber.value)'>Validate Aadhar Number</button>
+<div class="message" *ngIf='errorMessage==""; then thenBlock; else elseBlock;'></div>
+<ng-template #thenBlock>
+    <div [ngClass]="validationAadharNumberClasses"> {{aadharNumber.value}} is {{isValid?'Valid':'Invalid'}}</div>
+</ng-template>
+<ng-template #elseBlock>
+        <div class="aadhar-number-match-error"> {{errorMessage}}</div>
+</ng-template>
+<lib-my-lib></lib-my-lib>

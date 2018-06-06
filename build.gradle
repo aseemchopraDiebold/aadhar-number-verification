@@ -1,0 +1,46 @@
+project.buildDir='dist';
+task angularAppDependencyManagement(type: Exec){
+    commandLine "cmd", "/c", "npm install";
+}
+task angularAppBuild(type: Exec) {
+    inputs.file('package-lock.json').withPathSensitivity(PathSensitivity.RELATIVE);
+    inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
+    outputs.dir('$buildDir');
+    outputs.cacheIf { true };
+    commandLine "cmd", "/c", "ng build";
+    // doLast{
+    //     println 'The builddir is '+project.buildDir
+    // }
+}
+
+task angularAppBuildProd(type: Exec) {
+    inputs.file('package-lock.json').withPathSensitivity(PathSensitivity.RELATIVE);
+    inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
+    outputs.dir('$buildDir');
+    outputs.cacheIf { true };
+    commandLine "cmd", "/c", "ng build --prod";
+    // doLast{
+    //     println 'The builddir is '+project.buildDir
+    // }
+}
+task angularAppTest(type: Exec) {
+    commandLine "cmd", "/c", "ng test --code-coverage --watch=false";
+}
+task angularAppLint(dependsOn:'angularAppLintReporter', type: Exec) {
+    commandLine "cmd", "/c", "ng lint";
+}
+task angularAppLintReporter(type: Exec) {
+    commandLine "cmd", "/c", "node tslint-report.js";
+}
+
+task angularAppE2ETest(type: Exec) {
+    commandLine "cmd", "/c", "ng e2e --port 5000";
+}
+
+task buildTestEnv(type: Exec) {
+    commandLine "cmd", "/c", "gradle angularAppDependencyManagement angularAppBuild angularAppLint angularAppTest angularAppE2ETest";
+}
+
+task buildTestEnv1(type: GradleBuild){
+    tasks = ['angularAppDependencyManagement', 'angularAppBuild', 'angularAppLint', 'angularAppTest','angularAppE2ETest']
+}
