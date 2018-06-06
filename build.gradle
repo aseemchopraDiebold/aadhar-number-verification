@@ -7,7 +7,7 @@ task angularAppBuild(type: Exec) {
     inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
-    commandLine "cmd", "/c", "npm run ng build";
+    commandLine "cmd", "/c", "npm run build";
     // doLast{
     //     println 'The builddir is '+project.buildDir
     // }
