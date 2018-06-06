@@ -7,7 +7,7 @@ task angularAppBuild(type: Exec) {
     inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
-    commandLine "cmd", "/c", "ng build";
+    commandLine "cmd", "/c", "npm run ng build";
     // doLast{
     //     println 'The builddir is '+project.buildDir
     // }
@@ -20,23 +20,23 @@ task angularAppBuildProd(type: Exec) {
     inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
-    commandLine "cmd", "/c", "ng build --prod";
+    commandLine "cmd", "/c", "npm run ng build --prod";
     // doLast{
     //     println 'The builddir is '+project.buildDir
     // }
 }
 task angularAppTest(type: Exec) {
-    commandLine "cmd", "/c", "ng test --code-coverage --watch=false";
+    commandLine "cmd", "/c", "npm run ng test --code-coverage --watch=false";
 }
 task angularAppLint(dependsOn:'angularAppLintReporter', type: Exec) {
-    commandLine "cmd", "/c", "ng lint";
+    commandLine "cmd", "/c", "npm run ng lint";
 }
 task angularAppLintReporter(type: Exec) {
     commandLine "cmd", "/c", "node tslint-report.js";
 }
 
 task angularAppE2ETest(type: Exec) {
-    commandLine "cmd", "/c", "ng e2e --port 5000";
+    commandLine "cmd", "/c", "npm run ng e2e --port 5000";
 }
 
 task buildTestEnv(type: Exec) {
