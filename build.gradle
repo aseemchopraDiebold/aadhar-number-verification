@@ -32,7 +32,7 @@ task angularAppLint(dependsOn:'angularAppLintReporter', type: Exec) {
     commandLine "cmd", "/c", "npm run ng lint";
 }
 task angularAppLintReporter(type: Exec) {
-    commandLine "cmd", "/c", "node tslint-report.js";
+    commandLine "cmd", "/c", "npm run lint-reporter";
 }
 
 task angularAppE2ETest(type: Exec) {

@@ -1,1 +1,1 @@
-[{"endPosition":{"character":1,"line":17,"position":624},"failure":"trailing whitespace","fix":{"innerStart":623,"innerLength":1,"innerText":""},"name":"C:/Users/chopra2/test-angular-5/aadhar-nv/src/app/app.component.spec.ts","ruleName":"no-trailing-whitespace","ruleSeverity":"ERROR","startPosition":{"character":0,"line":17,"position":623}}]
+[]
