@@ -30,18 +30,18 @@ module.exports = function (config) {
       useCompactStyle: true,
       useLegacyStyle: true
     },
-    customLaunchers: {
-      ChromeCustom: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox'],
-        debug: false
-      }
-    },
+    // customLaunchers: {
+    //   ChromeCustom: {
+    //     base: 'ChromeHeadless',
+    //     flags: ['--no-sandbox'],
+    //     debug: false
+    //   }
+    // },
     port: 9999,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeCustom'],
+    browsers: ['ChromeHeadless'],
     singleRun: false,
     browserNoActivityTimeout: 100000 
   });
