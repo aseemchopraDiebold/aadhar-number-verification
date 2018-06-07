@@ -42,7 +42,7 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeNoSandbox'],
     singleRun: false,
-    retryLimit: 5
+    retryLimit: 10
   });
 };
 // browsers: ['ChromeHeadless'],
