@@ -31,21 +31,28 @@ module.exports = function (config) {
       useLegacyStyle: true
     },
     customLaunchers: {
-      ChromeHeadless: {
+      ChromeNoSandbox: {
         base: 'Chrome',
-        flags: [
-          '--headless',
-          '--disable-gpu',
-          // Without a remote debugging port, Google Chrome exits immediately.
-          '--remote-debugging-port=9222',
-        ],
+        flags: ['--no-sandbox']
       }
     },
-    port: 9876,
+    port: 9999,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeNoSandbox'],
     singleRun: false
   });
 };
+// browsers: ['ChromeHeadless'],
+// customLaunchers: {
+//   ChromeHeadless: {
+//     base: 'Chrome',
+//     flags: [
+//       '--headless',
+//       '--disable-gpu',
+//       // Without a remote debugging port, Google Chrome exits immediately.
+//       '--remote-debugging-port=9222',
+//     ],
+//   }
+// },
