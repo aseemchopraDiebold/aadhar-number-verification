@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test --code-coverage --watch=false",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e  --port 5000",
     "lint-reporter": "node tslint-report.js"
   },
   "private": true,

@@ -36,7 +36,7 @@ task angularAppLintReporter(type: Exec) {
 }
 
 task angularAppE2ETest(type: Exec) {
-    commandLine "cmd", "/c", "npm run ng e2e --port 5000";
+    commandLine "cmd", "/c", "npm run e2e";
 }
 
 task buildTestEnv(type: Exec) {
