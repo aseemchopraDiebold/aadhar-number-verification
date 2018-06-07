@@ -30,17 +30,17 @@ module.exports = function (config) {
       useCompactStyle: true,
       useLegacyStyle: true
     },
-    customLaunchers: {
-      ChromeHeadless: {
-        base: 'Chrome',
-        flags: [
-          '--headless',
-          '--disable-gpu',
-          // Without a remote debugging port, Google Chrome exits immediately.
-          '--remote-debugging-port=9222',
-        ],
-      }
-    },
+    // customLaunchers: {
+    //   ChromeHeadless: {
+    //     base: 'Chrome',
+    //     flags: [
+    //       '--headless',
+    //       '--disable-gpu',
+    //       // Without a remote debugging port, Google Chrome exits immediately.
+    //       '--remote-debugging-port=9222',
+    //     ],
+    //   }
+    // },
     port: 9999,
     colors: true,
     logLevel: config.LOG_INFO,
