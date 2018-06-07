@@ -31,18 +31,22 @@ module.exports = function (config) {
       useLegacyStyle: true
     },
     customLaunchers: {
-      ChromeNoSandbox: {
+      ChromeHeadless: {
         base: 'Chrome',
-        flags: ['--no-sandbox']
+        flags: [
+          '--headless',
+          '--disable-gpu',
+          // Without a remote debugging port, Google Chrome exits immediately.
+          '--remote-debugging-port=9222',
+        ],
       }
     },
     port: 9999,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeNoSandbox'],
-    singleRun: false,
-    retryLimit: 10
+    browsers: ['ChromeHeadless'],
+    singleRun: false
   });
 };
 // browsers: ['ChromeHeadless'],
@@ -55,5 +59,13 @@ module.exports = function (config) {
 //       // Without a remote debugging port, Google Chrome exits immediately.
 //       '--remote-debugging-port=9222',
 //     ],
+//   }
+// },
+
+// browsers: ['ChromeNoSandbox'],
+// customLaunchers: {
+//   ChromeNoSandbox: {
+//     base: 'Chrome',
+//     flags: ['--no-sandbox']
 //   }
 // },
