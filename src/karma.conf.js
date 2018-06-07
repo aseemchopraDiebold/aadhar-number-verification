@@ -41,7 +41,8 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeNoSandbox'],
-    singleRun: false
+    singleRun: false,
+    retryLimit: 5
   });
 };
 // browsers: ['ChromeHeadless'],
