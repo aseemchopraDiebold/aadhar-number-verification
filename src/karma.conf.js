@@ -8,6 +8,7 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-firefox-launcher'),
       require('karma-htmlfile-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -30,18 +31,17 @@ module.exports = function (config) {
       useCompactStyle: true,
       useLegacyStyle: true
     },
-    // customLaunchers: {
-    //   ChromeCustom: {
-    //     base: 'ChromeHeadless',
-    //     flags: ['--no-sandbox'],
-    //     debug: false
-    //   }
-    // },
+    customLaunchers: {
+      Firefox_Headless: {
+        base: 'Firefox',
+        flags: ['-headless']
+      }
+    },
     port: 9999,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    browsers: ['Firefox_Headless'],
     singleRun: false,
   });
 };
@@ -65,3 +65,11 @@ module.exports = function (config) {
 //     flags: ['--no-sandbox']
 //   }
 // },
+
+// customLaunchers: {
+    //   ChromeCustom: {
+    //     base: 'ChromeHeadless',
+    //     flags: ['--no-sandbox'],
+    //     debug: false
+    //   }
+    // },
