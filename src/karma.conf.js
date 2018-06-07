@@ -43,7 +43,6 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeHeadless'],
     singleRun: false,
-    browserNoActivityTimeout: 100000 
   });
 };
 // browsers: ['ChromeHeadless'],
