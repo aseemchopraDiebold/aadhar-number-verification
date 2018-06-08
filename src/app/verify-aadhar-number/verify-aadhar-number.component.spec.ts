@@ -13,7 +13,6 @@ describe('VerifyAadharNumberComponent', () => {
   let fixture: ComponentFixture<VerifyAadharNumberComponent>;
   let service: AadharNumberInfoFetchService;
   let el: DebugElement;
-  // let httpMock:HttpTestingController;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,7 +28,6 @@ describe('VerifyAadharNumberComponent', () => {
     component = fixture.componentInstance;
     service = TestBed.get(AadharNumberInfoFetchService);
     el = fixture.debugElement;
-    // httpMock = TestBed.get(HttpTestingController);
     fixture.detectChanges();
   });
 
@@ -44,8 +42,6 @@ describe('VerifyAadharNumberComponent', () => {
     const validAadhar: ValidAadharInterface = {
       isValid: true
     };
-    // let observableArray:validAadharInterface[];
-    // observableArray.push(validAadhar)
     spyOn(service, 'isValidAadharNumber').and.returnValue(of(validAadhar));
     fixture.detectChanges();
     expect(el.query(By.css('.aadhar-number-match-error')).nativeElement.innerText).toBe('is Invalid');
@@ -55,10 +51,6 @@ describe('VerifyAadharNumberComponent', () => {
     expect(component.isValid).toBeTruthy();
     fixture.detectChanges();
     expect(el.query(By.css('.aadhar-number-match-success')).nativeElement.innerText).toMatch('is Valid');
-
-    // const request = httpMock.expectOne(service.getUrl()+`${aadharNumber}`);
-    // expect(request.request.method).toBe('GET');
-    // request.flush(validAadhar);
 
   }));
 });

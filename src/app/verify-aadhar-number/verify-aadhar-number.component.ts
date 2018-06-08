@@ -31,10 +31,8 @@ export class VerifyAadharNumberComponent implements OnInit {
         this.validationAadharNumberClasses['aadhar-number-match-error'] = !this.isValid;
       }
     },
-    error => this.errorMessage = error);
+    (error) => this.errorMessage = error);
 
   }
-
-
 
 }

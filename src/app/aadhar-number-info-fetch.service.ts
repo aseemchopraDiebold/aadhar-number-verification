@@ -8,7 +8,7 @@ import { ValidAadharInterface } from './interface/validAadharInterface';
   providedIn: 'root'
 })
 export class AadharNumberInfoFetchService {
-  private _url: String = 'http://localhost:3000/aadhar/validate-aadhar/';
+  private _url: string = 'http://localhost:3000/aadhar/validate-aadhar/';
 
   constructor(private http: HttpClient) { }
 

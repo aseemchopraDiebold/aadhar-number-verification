@@ -29,7 +29,7 @@ describe('AadharNumberInfoFetchService', () => {
       isValid: true
     };
     const aadharNumber = 9999999999;
-    service.isValidAadharNumber(aadharNumber).subscribe(valid => {
+    service.isValidAadharNumber(aadharNumber).subscribe((valid) => {
       expect(valid).toEqual(aadharNumberValid);
       expect(valid.isValid).toBeTruthy();
     });
@@ -43,7 +43,7 @@ describe('AadharNumberInfoFetchService', () => {
       isValid: false
     };
     const aadharNumber = 9999999999;
-    service.isValidAadharNumber(aadharNumber).subscribe(valid => {
+    service.isValidAadharNumber(aadharNumber).subscribe((valid) => {
       expect(valid).toEqual(aadharNumberValid);
       expect(valid.isValid).toBeFalsy();
     });

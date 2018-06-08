@@ -63,7 +63,7 @@
     "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-misused-new": true,
@@ -129,6 +129,8 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "ordered-imports":false
+    "ordered-imports":false,
+    "trailing-comma":false,
+    "interface-name":false
   }
 }
