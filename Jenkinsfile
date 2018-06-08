@@ -1,16 +1,16 @@
-pipeline{
-    agent:any
-    stages{
-        stage('Dependency Management'){
+pipeline {
+    agent any
+    stages {
+        stage('Dependency Management') {
 
         }
-        stage('Build'){
+        stage('Build') {
 
         }
-        stage('Static Code Analysis'){
+        stage('Static Code Analysis') {
 
         }
-        stage('Unit Test'){
+        stage('Unit Test') {
 
         }
     }
