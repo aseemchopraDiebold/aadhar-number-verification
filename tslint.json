@@ -1,10 +1,10 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer","ts-rules"
   ],
   "rules": {
     // "no-imports": true,
-    // "no-multi-args-function": true,
+    "no-multi-args-function": true,
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
