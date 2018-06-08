@@ -6,7 +6,7 @@ xdescribe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        VerifyAadharNumberComponent
+        VerifyAadharNumberComponent,
       ],
     }).compileComponents();
   }));
