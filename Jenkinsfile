@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Build'
+                bat 'gradle angularAppBuild'
             }
         }
         stage('Static Code Analysis') {
