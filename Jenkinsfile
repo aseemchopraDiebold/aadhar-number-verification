@@ -4,13 +4,10 @@ pipeline {
         pollSCM('* * * * *') 
     }
     stages {
-        stage('Dependency Management') {
+        stage('Dependency Management & Build') {
             steps {
+                checkout scm
                 bat 'gradle angularAppDependencyManagement'
-            }
-        }
-        stage('Build') {
-            steps {
                 bat 'gradle angularAppBuild'
             }
         }
