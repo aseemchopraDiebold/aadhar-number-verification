@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                echo 'Unit Test'
+                bat 'gradle angularAppTest'
             }
         }
     }
