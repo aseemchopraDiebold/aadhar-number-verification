@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Dependency Management') {
             steps {
-                gradle angularAppDependencyManagement
+                sh "gradle angularAppDependencyManagement"
             }
         }
         stage('Build') {
