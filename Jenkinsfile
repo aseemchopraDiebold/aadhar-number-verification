@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Static Code Analysis') {
             steps {
-                echo 'Static Code Analysis'
+                bat 'gradle angularAppLint'
             }
         }
         stage('Unit Test') {
