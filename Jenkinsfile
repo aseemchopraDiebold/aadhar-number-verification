@@ -21,5 +21,10 @@ pipeline {
                 bat 'gradle angularAppTest'
             }
         }
+        stage('Publish') {
+            steps {
+                bat 'echo "Test"'
+            }
+        }
     }
 }
