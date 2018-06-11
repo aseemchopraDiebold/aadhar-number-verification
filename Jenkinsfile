@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    checkout scm
-    triggers { 
-        pollSCM('* * * * *') 
-    }
+    git poll: true, url: 'https://github.com/aseemchopraDiebold/aadhar-number-verification'
     stages {
         stage('Dependency Management') {
             steps {
