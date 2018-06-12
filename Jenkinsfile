@@ -23,7 +23,9 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                def props = readProperties file: 'jenkinsconfig.properties'
+                script {
+                    def props = readProperties file: 'jenkinsconfig.properties'
+                }
                 bat 'echo $props.testMessage'
             }
         }
