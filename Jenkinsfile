@@ -25,8 +25,8 @@ pipeline {
             steps {
                 script {
                     def props = readProperties file: 'jenkinsconfig.properties'
+                    bat "echo $props.testMessage"
                 }
-                bat "echo $props.testMessage"
             }
         }
     }
