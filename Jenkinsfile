@@ -28,7 +28,7 @@ pipeline {
                     bat "echo $props.testMessage"
                     $props.testMessage = Mumbai
                     def props2 = readProperties interpolate:true, file: 'jenkinsconfig.properties'
-                    bat "echo $props.testMessage"
+                    bat "echo $props2.testMessage"
 
                 }
             }
