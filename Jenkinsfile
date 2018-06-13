@@ -24,6 +24,7 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
+                    bat "echo ${WORKSPACE}"
                     def props = readJSON file: 'jenkinsconfig.json'
                     bat "echo $props.testMessage"
                     props.testMessage = 'Mumbai'
