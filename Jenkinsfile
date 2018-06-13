@@ -25,12 +25,14 @@ pipeline {
             steps {
                 script {
                     bat "echo ${WORKSPACE}"
-                    def props = readJSON file: 'jenkinsconfig.json'
-                    bat "echo $props.testMessage"
-                    props.testMessage = 'Mumbai'
-                    writeJSON file: 'jenkinsconfig.json', json: props
-                    def props2 = readJSON interpolate: true, file: 'jenkinsconfig.json'
-                    bat "echo $props2.testMessage"
+                    bat "xcopy ${WORKSPACE}/target 'C:/buildPipeline/target' /j /s /y"
+                    bat "xcopy ${WORKSPACE}/dist 'C:/buildPipeline/dist' /j /s /y"
+                    // def props = readJSON file: 'jenkinsconfig.json'
+                    // bat "echo $props.testMessage"
+                    // props.testMessage = 'Mumbai'
+                    // writeJSON file: 'jenkinsconfig.json', json: props
+                    // def props2 = readJSON interpolate: true, file: 'jenkinsconfig.json'
+                    // bat "echo $props2.testMessage"
 
                 }
             }
