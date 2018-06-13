@@ -26,7 +26,7 @@ pipeline {
                 script {
                     bat "echo ${WORKSPACE}"
                     bat "xcopy ${WORKSPACE}\\target C:\\buildPipeline\\target /j /s /y"
-                    bat "xcopy ${WORKSPACE}\\dist 'C:\\buildPipeline\\dist' /j /s /y"
+                    bat "xcopy ${WORKSPACE}\\dist C:\\buildPipeline\\dist /j /s /y"
                     // def props = readJSON file: 'jenkinsconfig.json'
                     // bat "echo $props.testMessage"
                     // props.testMessage = 'Mumbai'
