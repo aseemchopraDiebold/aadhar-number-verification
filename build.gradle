@@ -39,6 +39,22 @@ task angularAppE2ETest(type: Exec) {
     commandLine "cmd", "/c", "npm run e2e";
 }
 
+task angularAppPublishTarget(type: Copy) {
+    from 'target'
+    into '../buildPipeline/target'
+    include '**/*.*'
+}
+
+task angularAppPublish(dependsOn: 'angularAppPublishTarget', type: Copy) {
+    from 'dist'
+    into '../buildPipeline/dist'
+    include '**/*.*'
+}
+
+task angularAppPublishClean(type: Delete){
+    delete '../buildPipeline/target', '../buildPipeline/dist'
+}
+
 task buildTestEnv(type: Exec) {
     commandLine "cmd", "/c", "gradle angularAppDependencyManagement angularAppBuild angularAppLint angularAppTest angularAppE2ETest";
 }
