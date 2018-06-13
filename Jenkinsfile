@@ -36,3 +36,17 @@ pipeline {
         }
     }
 }
+
+pipeline {
+    agent any
+    triggers { 
+        pollSCM('*/5 * * * *') 
+    }
+    stages {
+        stage('Unit Test') {
+            steps {
+                bat 'gradle angularAppTest'
+            }
+        }
+    }
+}
