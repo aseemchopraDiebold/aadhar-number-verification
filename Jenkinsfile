@@ -26,7 +26,7 @@ pipeline {
                 script {
                     def props = readProperties interpolate: true, file: 'jenkinsconfig.properties'
                     bat "echo $props.testMessage"
-                    $props.testMessage = Mumbai
+                    props.testMessage = Mumbai
                     def props2 = readProperties interpolate: true, file: 'jenkinsconfig.properties'
                     bat "echo $props2.testMessage"
 
