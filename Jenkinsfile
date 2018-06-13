@@ -24,10 +24,10 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
-                    def props = readJSON interpolate: true, file: 'jenkinsconfig.properties'
+                    def props = readJSON interpolate: true, file: 'jenkinsconfig.json'
                     bat "echo $props.testMessage"
                     props.testMessage = 'Mumbai'
-                    def props2 = readJSON interpolate: true, file: 'jenkinsconfig.properties'
+                    def props2 = readJSON interpolate: true, file: 'jenkinsconfig.json'
                     bat "echo $props2.testMessage"
 
                 }
