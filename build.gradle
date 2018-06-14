@@ -41,18 +41,22 @@ task angularAppE2ETest(type: Exec) {
 
 task angularAppPublishTarget(type: Copy) {
     from 'target'
-    into '../buildPipeline/target'
+    into 'C:/buildPipeline/target'
     include '**/*.*'
 }
 
-task angularAppPublish(dependsOn: 'angularAppPublishTarget', type: Copy) {
+task angularAppPublishDist(type: Copy) {
     from 'dist'
-    into '../buildPipeline/dist'
+    into 'C:/buildPipeline/dist'
     include '**/*.*'
 }
 
 task angularAppPublishClean(type: Delete){
-    delete '../buildPipeline/target', '../buildPipeline/dist'
+    delete 'C:/buildPipeline/target', 'C:/buildPipeline/dist'
+}
+
+task angularAppPublish(type: GradleBuild){
+    tasks = ['angularAppPublishClean', 'angularAppPublishTarget', 'angularAppPublishDist']
 }
 
 task buildTestEnv(type: Exec) {
