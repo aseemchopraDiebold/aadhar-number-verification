@@ -4,28 +4,33 @@ pipeline {
         pollSCM('* * * * *') 
     }
     stages {
-        stage('Dependency Management & Build') {
+        stage('SCA') {
             steps {
                 checkout scm
-                bat 'gradle angularAppDependencyManagement'
-                bat 'gradle angularAppBuild'
+                bat 'gradle UiSCA'
             }
-        }
-        stage('Static Code Analysis') {
+        }        
+        stage('Dependency Management') {
             steps {
-                bat 'gradle angularAppLint'
+                
+                bat 'gradle UiDependencyMgmt'
             }
         }
+        stage('Compile & Configure') {
+            steps {
+                bat 'gradle UiProdBuild'
+            }
+        }        
+
         stage('Unit Test') {
             steps {
-                bat 'gradle angularAppTest'
+                bat 'gradle UiUnitTest'
             }
         }
         stage('Publish') {
             steps {
                 script {
-                    bat "gradle angularAppPublish"
-
+                    bat "gradle UiPublishReport"
                 }
             }
         }
