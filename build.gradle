@@ -1,60 +1,56 @@
 project.buildDir='dist';
-task angularAppDependencyManagement(type: Exec){
+
+task UiDependencyMgmt(type: Exec){
     commandLine "cmd", "/c", "npm install";
 }
-task angularAppBuild(type: Exec) {
+
+task UiBuild(type: Exec) {
     inputs.file('package-lock.json').withPathSensitivity(PathSensitivity.RELATIVE);
     inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
     commandLine "cmd", "/c", "npm run build";
-}
+ }
 
-task angularAppBuildProd(type: Exec) {
+task UiProdBuild(type: Exec) {
     inputs.file('package-lock.json').withPathSensitivity(PathSensitivity.RELATIVE);
     inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
     commandLine "cmd", "/c", "npm run ng build --prod";
 }
-task angularAppTest(type: Exec) {
+
+task UiUnitTest(type: Exec) {
     commandLine "cmd", "/c", "npm run test";
 }
-task angularAppLint(dependsOn:'angularAppLintReporter', type: Exec) {
+
+task UiSCA(dependsOn:'UiSCAReport', type: Exec) {
     commandLine "cmd", "/c", "npm run ng lint";
 }
-task angularAppLintReporter(type: Exec) {
+
+task UiSCAReport(type: Exec) {
     commandLine "cmd", "/c", "npm run lint-reporter";
 }
 
-task angularAppE2ETest(type: Exec) {
+task UiE2ETest(type: Exec) {
     commandLine "cmd", "/c", "npm run e2e";
 }
 
-task angularAppPublishTarget(type: Copy) {
+task UiPublishReport(type: Copy) {
     from 'target'
-    into 'C:/buildPipeline/target'
+    into 'C:/buildPipeline/UiReport'
     include '**/*.*'
 }
 
-task angularAppPublishDist(type: Copy) {
+task UiPublish(type: Copy) {
     from 'dist'
     into 'C:/buildPipeline/dist'
     include '**/*.*'
 }
 
-task angularAppPublishClean(type: Delete){
+task UiClean(type: Delete){
     delete 'C:/buildPipeline/target', 'C:/buildPipeline/dist'
 }
-
-task angularAppPublish(type: GradleBuild){
-    tasks = ['angularAppPublishClean', 'angularAppPublishTarget', 'angularAppPublishDist']
-}
-
-task buildTestEnv(type: Exec) {
-    commandLine "cmd", "/c", "gradle angularAppDependencyManagement angularAppBuild angularAppLint angularAppTest angularAppE2ETest";
-}
-
-task buildTestEnv1(type: GradleBuild){
-    tasks = ['angularAppDependencyManagement', 'angularAppBuild', 'angularAppLint', 'angularAppTest','angularAppE2ETest']
+task UiBuildAll(type: GradleBuild){
+    tasks = ['UiClean', 'UiSCA', 'UiDependencyMgmt', 'UiBuild']
 }
