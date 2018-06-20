@@ -30,4 +30,15 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            def input = readJSON file: 'jenkinsconfig.json'
+            input.workspace = workspace
+            writeJSON file: 'jenkinsconfig.json', json: input
+
+            def input2 = readJSON file: 'jenkinsconfig.json'
+            bat 'echo ${input2.workspace}'
+
+        }
+    }
 }

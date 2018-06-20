@@ -8,12 +8,7 @@ task angularAppBuild(type: Exec) {
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
     commandLine "cmd", "/c", "npm run build";
-    // doLast{
-    //     println 'The builddir is '+project.buildDir
-    // }
 }
-
-
 
 task angularAppBuildProd(type: Exec) {
     inputs.file('package-lock.json').withPathSensitivity(PathSensitivity.RELATIVE);
@@ -21,9 +16,6 @@ task angularAppBuildProd(type: Exec) {
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
     commandLine "cmd", "/c", "npm run ng build --prod";
-    // doLast{
-    //     println 'The builddir is '+project.buildDir
-    // }
 }
 task angularAppTest(type: Exec) {
     commandLine "cmd", "/c", "npm run test";
