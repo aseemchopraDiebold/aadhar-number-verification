@@ -41,7 +41,7 @@ pipeline {
                 writeJSON file: 'jenkinsconfig.json', json: input
 
                 def input2 = readJSON file: 'jenkinsconfig.json'
-                bat 'echo ${input2}'
+                bat "echo ${input2.workspace}"
             }
 
         }
