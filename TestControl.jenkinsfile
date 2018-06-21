@@ -1,9 +1,11 @@
 pipeline {
     agent {
         node {
-            def input = readJSON file: 'jenkinsconfig.json'
-            label 'test-control-pipeline-workspace'
-            customWorkspace input.workspace
+            script {
+                def input = readJSON file: 'jenkinsconfig.json'
+                label 'test-control-pipeline-workspace'
+                customWorkspace input.workspace
+            }
         }
     }
 
