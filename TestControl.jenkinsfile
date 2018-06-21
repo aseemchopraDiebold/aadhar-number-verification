@@ -1,8 +1,10 @@
+
+
 pipeline {
     agent {
         node {
             label 'test-control-pipeline-workspace'
-            customWorkspace input.workspace
+            customWorkspace customWorkspaceLoc
         }
     }
 
