@@ -5,31 +5,24 @@ pipeline {
         pollSCM('* * * * *') 
     }
     stages {      
-        stage('Dependency Management') {
+        stage('Install & Configure') {
             steps {
-                checkout scm
-                bat 'gradle UiDependencyMgmt'
+                echo 'Install & Configure'
             }
         }
-        stage('Compile & Configure') {
+        stage('Acceptance Test') {
             steps {
-                bat 'gradle UiProdBuild'
+                echo 'Acceptance Test'
             }
         }        
-        stage('SCA') {
+        stage('Full Regression Test') {
             steps {
-                
-                bat 'gradle UiSCA'
+                echo 'Full Regression Test'
             }
         }
-        stage('Unit Test') {
+        stage('Performance & Security') {
             steps {
-                bat 'gradle UiUnitTest'
-            }
-        }
-        stage('Publish') {
-            steps {
-                bat "gradle UiPublishReport"
+                echo 'Performance & Security'
             }
         }
     }

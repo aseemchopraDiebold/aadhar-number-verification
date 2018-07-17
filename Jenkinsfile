@@ -10,18 +10,12 @@ pipeline {
                 bat 'gradle UiSCA'
             }
         }        
-        stage('Dependency Management') {
+        stage('Build') {
             steps {
-                
                 bat 'gradle UiDependencyMgmt'
-            }
-        }
-        stage('Compile & Configure') {
-            steps {
                 bat 'gradle UiProdBuild'
             }
-        }        
-
+        }
         stage('Unit Test') {
             steps {
                 bat 'gradle UiUnitTest'
