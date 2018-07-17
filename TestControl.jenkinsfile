@@ -1,12 +1,5 @@
-
-
 pipeline {
-    agent {
-        node {
-            label 'test-control-pipeline-workspace'
-            customWorkspace customWorkspaceLoc
-        }
-    }
+    agent any
 
     triggers { 
         pollSCM('* * * * *') 
