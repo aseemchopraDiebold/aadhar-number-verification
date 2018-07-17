@@ -36,10 +36,11 @@ pipeline {
     post {
         success {
             script {
-                def input = readJSON file: 'jenkinsconfig.json'
-                input.workspace = workspace
-                writeJSON file: 'jenkinsconfig.json', json: input
-                build job: 'Test Control Pipeline', propagate: false, parameters: [string(name: 'customWorkspaceLoc', value: workspace)]
+                echo 'Success'
+                // def input = readJSON file: 'jenkinsconfig.json'
+                // input.workspace = workspace
+                // writeJSON file: 'jenkinsconfig.json', json: input
+                // build job: 'Test Control Pipeline', propagate: false, parameters: [string(name: 'customWorkspaceLoc', value: workspace)]
                 // def input2 = readJSON file: 'jenkinsconfig.json'
                 // bat "echo ${input2.workspace}"
             }
