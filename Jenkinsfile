@@ -7,12 +7,12 @@ pipeline {
         stage('SCA') {
             steps {
                 checkout scm
+                bat 'gradle UiDependencyMgmt'
                 bat 'gradle UiSCA'
             }
         }        
         stage('Build') {
             steps {
-                bat 'gradle UiDependencyMgmt'
                 bat 'gradle UiProdBuild'
             }
         }
