@@ -237,6 +237,107 @@ app.controller('ScreenshotReportController', function ($scope) {
         ],
         "timestamp": 1527679872479,
         "duration": 503
+    },
+    {
+        "description": "should display welcome message|workspace-project App",
+        "passed": true,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 24136,
+        "browser": {
+            "name": "chrome",
+            "version": "68.0.3440.106"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1536321872846,
+        "duration": 4950
+    },
+    {
+        "description": "should have aadhar number input tag|workspace-project App",
+        "passed": true,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 24136,
+        "browser": {
+            "name": "chrome",
+            "version": "68.0.3440.106"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1536321878454,
+        "duration": 369
+    },
+    {
+        "description": "input tag should have 9999999999|workspace-project App",
+        "passed": true,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 24136,
+        "browser": {
+            "name": "chrome",
+            "version": "68.0.3440.106"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [
+            {
+                "level": "WARNING",
+                "message": "http://localhost:5000/vendor.js 72818 WebSocket connection to 'ws://localhost:5000/sockjs-node/551/kpiksxlh/websocket' failed: WebSocket is closed before the connection is established.",
+                "timestamp": 1536321878869,
+                "type": ""
+            }
+        ],
+        "timestamp": 1536321878850,
+        "duration": 548
+    },
+    {
+        "description": "should have validate aadhar number button|workspace-project App",
+        "passed": true,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 24136,
+        "browser": {
+            "name": "chrome",
+            "version": "68.0.3440.106"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1536321879457,
+        "duration": 266
+    },
+    {
+        "description": "should validate the aadhar number|workspace-project App",
+        "passed": false,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 24136,
+        "browser": {
+            "name": "chrome",
+            "version": "68.0.3440.106"
+        },
+        "message": "Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.",
+        "trace": "Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.\n    at Timeout._onTimeout (C:\\Users\\chopra2\\test-angular-5\\aadhar-nv\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4281:23)\n    at ontimeout (timers.js:482:11)\n    at tryOnTimeout (timers.js:317:5)\n    at Timer.listOnTimeout (timers.js:277:5)",
+        "browserLogs": [
+            {
+                "level": "WARNING",
+                "message": "http://localhost:5000/vendor.js 72818 WebSocket connection to 'ws://localhost:5000/sockjs-node/818/ppl4mzbx/websocket' failed: WebSocket is closed before the connection is established.",
+                "timestamp": 1536321879782,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "http://localhost:3000/aadhar/validate-aadhar/9999999999 - Failed to load resource: net::ERR_CONNECTION_REFUSED",
+                "timestamp": 1536321882291,
+                "type": ""
+            }
+        ],
+        "screenShotFile": "images\\00c9004e-00eb-0054-0047-0006009300de.png",
+        "timestamp": 1536321879759,
+        "duration": 60399
     }
 ];
 

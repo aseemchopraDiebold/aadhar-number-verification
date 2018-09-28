@@ -17,7 +17,7 @@ task UiProdBuild(type: Exec) {
     inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE);
     outputs.dir('$buildDir');
     outputs.cacheIf { true };
-    commandLine "cmd", "/c", "npm run ng build --prod";
+    commandLine "cmd", "/c", "npm run build-prod";
 }
 
 task UiUnitTest(type: Exec) {
@@ -25,7 +25,7 @@ task UiUnitTest(type: Exec) {
 }
 
 task UiSCA(dependsOn:'UiSCAReport', type: Exec) {
-    commandLine "cmd", "/c", "npm run ng lint";
+    commandLine "cmd", "/c", "npm run lint";
 }
 
 task UiSCAReport(type: Exec) {
